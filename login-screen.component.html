@@ -1,0 +1,61 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-red-50 p-4">
+  <div class="w-full max-w-md bg-white rounded-xl shadow p-6">
+    <div class="text-center">
+      <div class="flex justify-center mb-4">
+        <div class="p-3 bg-primary rounded-full">
+          <!-- ChefHat icon substitute -->
+          <span class="text-white text-2xl">🍳</span>
+        </div>
+      </div>
+      <h2 class="text-xl font-bold">Restaurant Inventory System</h2>
+      <p class="text-sm text-gray-500">Sign in to access your dashboard</p>
+    </div>
+
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="space-y-4 mt-6">
+      <div>
+        <label for="email" class="block text-sm font-medium">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          class="mt-1 w-full border rounded p-2"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          class="mt-1 w-full border rounded p-2"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <div *ngIf="error" class="bg-red-100 text-red-700 p-2 rounded text-sm">
+        {{ error }}
+      </div>
+
+      <button type="submit" class="w-full bg-primary text-white py-2 rounded">
+        Sign In
+      </button>
+    </form>
+
+    <div class="mt-6 pt-6 border-t">
+      <p class="text-sm text-gray-500 mb-3">Demo accounts:</p>
+      <div class="space-y-2">
+        <div *ngFor="let account of demoAccounts" class="text-xs bg-gray-100 p-2 rounded">
+          <div class="font-medium">{{ account.role }}</div>
+          <div>{{ account.email }}</div>
+          <div>Password: {{ account.password }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
