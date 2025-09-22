@@ -1,61 +1,73 @@
-<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-red-50 p-4">
-  <div class="w-full max-w-md bg-white rounded-xl shadow p-6">
-    <div class="text-center">
-      <div class="flex justify-center mb-4">
-        <div class="p-3 bg-primary rounded-full">
-          <!-- ChefHat icon substitute -->
-          <span class="text-white text-2xl">🍳</span>
+<section>
+  <div class="px-4 py-5 px-md-5 text-center text-lg-start bg-light">
+    <div class="container">
+      <div class="row gx-lg-5 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="my-3 display-2 fw-bold ls-tight">
+            Welcome back <br />
+            <span class="text-primary">Login to continue</span>
+          </h1>
+          <p class="text-muted">
+          Welcome to the Restaurant Inventory Management System.
+          Manage ingredients, track orders, and keep your kitchen running smoothly—all in one place.
+          Please log in to continue.
+          </p>
         </div>
-      </div>
-      <h2 class="text-xl font-bold">Restaurant Inventory System</h2>
-      <p class="text-sm text-gray-500">Sign in to access your dashboard</p>
-    </div>
 
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="space-y-4 mt-6">
-      <div>
-        <label for="email" class="block text-sm font-medium">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          [(ngModel)]="email"
-          class="mt-1 w-full border rounded p-2"
-          placeholder="Enter your email"
-          required
-        />
-      </div>
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="card">
+            <div class="card-body py-5 px-md-5">
+              <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+                
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" formControlName="email" class="form-control" />
+                  <label class="form-label">Email address</label>
+                </div>
 
-      <div>
-        <label for="password" class="block text-sm font-medium">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          [(ngModel)]="password"
-          class="mt-1 w-full border rounded p-2"
-          placeholder="Enter your password"
-          required
-        />
-      </div>
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" formControlName="password" class="form-control" />
+                  <label class="form-label">Password</label>
+                </div>
 
-      <div *ngIf="error" class="bg-red-100 text-red-700 p-2 rounded text-sm">
-        {{ error }}
-      </div>
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-between mb-4">
+                  <div>
+                    <input class="form-check-input me-2" type="checkbox" formControlName="rememberMe" />
+                    <label class="form-check-label"> Remember me </label>
+                  </div>
+                  <a href="#">Forgot password?</a>
+                </div>
 
-      <button type="submit" class="w-full bg-primary text-white py-2 rounded">
-        Sign In
-      </button>
-    </form>
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">
+                  Login
+                </button>
 
-    <div class="mt-6 pt-6 border-t">
-      <p class="text-sm text-gray-500 mb-3">Demo accounts:</p>
-      <div class="space-y-2">
-        <div *ngFor="let account of demoAccounts" class="text-xs bg-gray-100 p-2 rounded">
-          <div class="font-medium">{{ account.role }}</div>
-          <div>{{ account.email }}</div>
-          <div>Password: {{ account.password }}</div>
+                <!-- Social login -->
+                <!-- <div class="text-center">
+                  <p>or login with:</p>
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                  </button>
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                  </button>
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                  </button>
+                </div> -->
+
+              </form>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
-</div>
+</section>
